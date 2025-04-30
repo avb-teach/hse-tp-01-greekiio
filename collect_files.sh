@@ -9,7 +9,7 @@ out="${a2:1}"
 find "$in" -type f -exec cp --backup=numbered -t "$out" {} +
 
 # unix.stackexchange.com/questions/32409/set-and-shopt-why-two
-# shopt -s nullglob
+shopt -s nullglob
 
 # for file in "$out"/*.~*~; do
 #     # www.linux.org.ru/forum/general/2639961
