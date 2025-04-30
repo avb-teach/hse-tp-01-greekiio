@@ -11,7 +11,7 @@ out="${a2:1}"
 mkdir -p "$out"
 
 # unix.stackexchange.com/questions/103078/cp-backup-numbered-for-folders
-find "$in" -type f -exec cp {} "$out" \;
+find "$in" -type f -exec cp --backup=numbered {} "$out" \;
 
 # for file in "$out"/*.~*~; do
 #     # www.linux.org.ru/forum/general/2639961
