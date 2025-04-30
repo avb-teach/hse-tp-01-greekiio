@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # unix.stackexchange.com/questions/32409/set-and-shopt-why-two
 shopt -s nullglob
 
