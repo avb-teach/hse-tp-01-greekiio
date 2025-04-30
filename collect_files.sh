@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ $# -ne 2 ]; then
+    exit 1
+fi
+
 # unix.stackexchange.com/questions/103078/cp-backup-numbered-for-folders
 find "$1" -type f -exec cp --backup=numbered -t "$2" {} +
 
