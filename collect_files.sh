@@ -1,13 +1,17 @@
 #!/bin/bash
 
-if [ $# -ne 2 ]; then
-    exit 1
-fi
+a1="$1"
+a2="$2"
+in="${a1:1}"
+out="${a2:1}"
 
 # unix.stackexchange.com/questions/103078/cp-backup-numbered-for-folders
-find "$1" -type f -exec cp --backup=numbered -t "$2" {} +
+find "$in" -type f -exec cp --backup=numbered -t "$out" {} +
 
-for file in "$2"/*.~*~; do
+# unix.stackexchange.com/questions/32409/set-and-shopt-why-two
+shopt -s nullglob
+
+for file in "$out"/*.~*~; do
     # www.linux.org.ru/forum/general/2639961
     curExt="${file%.*}"
     ext="${curExt##*.}"
@@ -24,7 +28,6 @@ for file in "$2"/*.~*~; do
     # www.linux.org.ru/forum/general/2003823
     clearedResult="${result//\~/}"
 
-    cp -- "$file" "$clearedResult"
-    rm -- "$file"
+    mv -- "$file" "$clearedResult"
 
 done
