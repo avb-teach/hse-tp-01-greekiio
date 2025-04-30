@@ -8,6 +8,8 @@ a2="$2"
 in="${a1:1}"
 out="${a2:1}"
 
+mkdir -p "$out"
+
 # unix.stackexchange.com/questions/103078/cp-backup-numbered-for-folders
 find "$in" -type f -exec cp --backup=numbered {} "$out" \;
 
