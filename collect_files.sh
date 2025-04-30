@@ -9,7 +9,7 @@ find "$in" -type f | while read f; do
     ext="${basename##*.}"
     name="${basename%.*}"
 
-    result="${name}${cnt}"
+    result="${name}"
     ((cnt++))
     if [[ "$name" != "$ext" ]]; then 
         result="$result.${ext}"
